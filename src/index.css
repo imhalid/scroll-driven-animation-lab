@@ -16,3 +16,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+body {
+  padding-top: 100vh;
+}
+
+p {
+  text-align: left;
+  margin: 30px 0;
+}
+

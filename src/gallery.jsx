@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <div className="w-full h-96 bg-neutral-900 rounded-xl border border-neutral-700 relative p-1 flex items-center gap-2 justify-center">
+    <div className="w-full h-96 bg-neutral-900 rounded-xl border border-neutral-700 relative p-1 flex items-center gap-2 justify-center gallery-wrapper">
       <img
         style={{ '--index': 1 }}
         src="https://images.unsplash.com/photo-1570553613235-412575f3fb6a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
