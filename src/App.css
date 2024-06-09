@@ -45,13 +45,34 @@
 }
 
 .gallery-images {
-  --start: calc(var(--index) * 10px);
+  --start: calc(var(--index) * 1vh);
 	animation: animate-in-and-out linear both;
-	animation-timeline: scroll();
-  animation-range: 0vh 90vh;
   border-radius: 8px;
-  
 }
+
+  .image1 {
+    animation-timeline: view();
+    animation-range: 14vh 90vh;
+  }
+
+  .image2 {
+    animation-timeline: view();
+    animation-range: 5vh 90vh;
+  }
+
+  .image3 {
+    animation-timeline: view();
+    animation-range: 10vh 90vh;
+  }
+
+  .image4 {
+    animation-timeline: view();
+    animation-range: 15vh 90vh;
+  }
+
+  
+
+
 
 @layer warning {
   .warning {
