@@ -1,117 +1,106 @@
-
 @keyframes sticky-parallax-header-move-and-size {
-  from {
-    background-position: 50% 0;
-    height: 100vh;
-    font-size: calc(4vw + 1em);
-  }
-  to {
-    background-position: 50% 100%;
-    background-color: #252716;
-    height: 5vh;
-    font-size: 2em;
-  }
+    from {
+        background-position: 50% 0;
+        height: 100vh;
+        font-size: calc(4vw + 1em);
+    }
+
+    to {
+        background-position: 50% 100%;
+        background-color: #252716;
+        height: 10vh;
+        font-size: 2em;
+    }
 }
 
 #sticky-parallax-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-blend-mode: soft-light;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background-image: url('https://images.unsplash.com/photo-1717496002081-38a90d3cba26?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  animation: sticky-parallax-header-move-and-size linear forwards;
-  animation-timeline: scroll();
-  animation-range: 0vh 95vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-blend-mode: soft-light;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-image: url("https://images.unsplash.com/photo-1717496002081-38a90d3cba26?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    animation: sticky-parallax-header-move-and-size linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0vh 95vh;
 }
-
 
 .gallery-wrapper {
-  perspective: 1000px;
-}
-@keyframes animate-in-and-out {
-	entry 0%  {
-    transform: translateY(100%) rotateX(90deg);
-    filter: brightness(3.2) blur(1px) saturate(0);
-	}
-	entry 100%  {
-    transform: translateY(0) rotateX(0deg);
-    filter: brightness(1) blur(0) saturate(1);
-	}
+    perspective: 1000px;
 }
 
-.gallery-images {
-  --start: calc(var(--index) * 1vh);
-	animation: animate-in-and-out linear both;
-  border-radius: 8px;
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0px) rotateX(0deg);
+        filter: blur(0px) contrast(1) brightness(1) saturate(1);
+    }
 }
 
-  .image1 {
-    animation-timeline: view();
-    animation-range: 14vh 90vh;
-  }
+#img-container {
+    transform: translateY(calc(var(--index) * 40px))
+        rotateX(calc(var(--index) * 30deg)) rotateY(calc(var(--index) * 10deg));
+    filter: blur(calc(var(--index) * 1px)) contrast(calc(var(--index) * 1.2))
+        brightness(calc(var(--index) * 2)) saturate(0);
+    --start: calc(var(--index) * 10%);
+    opacity: 0;
+    counter-reset: variable var(--start);
+    /* Create View Timeline */
+    view-timeline-name: --revealing-image;
+    view-timeline-axis: block;
+    animation: linear reveal both;
+    /* Attach animation, linked to the  View Timeline */
+    animation-timeline: --revealing-image;
 
-  .image2 {
-    animation-timeline: view();
-    animation-range: 5vh 90vh;
-  }
-
-  .image3 {
-    animation-timeline: view();
-    animation-range: 10vh 90vh;
-  }
-
-  .image4 {
-    animation-timeline: view();
-    animation-range: 15vh 90vh;
-  }
-
-  
-
-
+    /* Tweak range when effect should run*/
+    animation-range: entry var(--start) cover 50%;
+}
 
 @layer warning {
-  .warning {
-    box-sizing: border-box;
-    padding: 1em;
-    margin: 1em 0;
-    border: 1px solid #ccc;
-    background: rgba(255 255 205 / 0.8);
-  }
-
-  .warning > :first-child {
-    margin-top: 0;
-  }
-
-  .warning > :last-child {
-    margin-bottom: 0;
-  }
-
-  .warning a {
-    color: blue;
-  }
-  .warning--info {
-    border: 1px solid #123456;
-    background: rgb(205 230 255 / 0.8);
-  }
-  .warning--alarm {
-    border: 1px solid red;
-    background: #ff000010;
-  }
-
-  @supports (animation-timeline: view()) {
-    .warning:not([data-bug]) {
-      display: none;
+    .warning {
+        box-sizing: border-box;
+        padding: 1em;
+        margin: 1em 0;
+        border: 1px solid #ccc;
+        background: rgba(255 255 205 / 0.8);
     }
-  }
 
-  @supports(animation-range: 0vh 90vh) {
-    .warning[data-bug="1427062"] {
-      display: none;
+    .warning > :first-child {
+        margin-top: 0;
     }
-  }
+
+    .warning > :last-child {
+        margin-bottom: 0;
+    }
+
+    .warning a {
+        color: blue;
+    }
+
+    .warning--info {
+        border: 1px solid #123456;
+        background: rgb(205 230 255 / 0.8);
+    }
+
+    .warning--alarm {
+        border: 1px solid red;
+        background: #ff000010;
+    }
+
+    @supports (animation-timeline: view()) {
+        .warning:not([data-bug]) {
+            display: none;
+        }
+    }
+
+    @supports (animation-range: 0vh 90vh) {
+        .warning[data-bug="1427062"] {
+            display: none;
+        }
+    }
 }
