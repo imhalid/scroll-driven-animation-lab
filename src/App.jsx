@@ -1,10 +1,12 @@
 import "./App.css";
 import Gallery from "./gallery.jsx";
+import Menu from "./menu.jsx";
 function App() {
   return (
     <>
       <div id="sticky-parallax-header">Scroll-Driven Animation</div>
-      <div className="max-w-screen-lg mx-auto w-full h-full p-5">
+      <div className="max-w-screen-lg mx-auto w-full h-full p-5 relative">
+        <Menu />
         <div id="content">
           <div className="warning">
             <p>

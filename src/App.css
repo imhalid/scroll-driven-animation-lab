@@ -31,22 +31,23 @@
 }
 
 .gallery-wrapper {
-    perspective: 1000px;
+    perspective: 30000px;
 }
 
 @keyframes reveal {
     to {
+        opacity: 1;
         transform: translateY(0px) rotateX(0deg);
-        filter: blur(0px) contrast(1) brightness(1) saturate(1);
+        filter: blur(0px) saturate(1);
     }
 }
 
 #img-container {
     transform: translateY(calc(var(--index) * 10px))
-        rotateX(calc(var(--index) * 5deg)) rotateY(calc(var(--index) * 2deg));
-    filter: blur(calc(var(--index) * 1px)) contrast(calc(var(--index) * 0.5))
-        brightness(calc(var(--index) * 0.5)) saturate(0);
+        rotateX(calc(var(--index) * 5deg)) rotateY(calc(var(--index) * 0deg));
+    filter: blur(calc(var(--index) * 1px)) saturate(0);
     --start: calc(var(--index) * 10%);
+    opacity: 0;
     counter-reset: variable var(--start);
     /* Create View Timeline */
     view-timeline-name: --revealing-image;
@@ -56,7 +57,27 @@
     animation-timeline: --revealing-image;
 
     /* Tweak range when effect should run*/
-    animation-range: entry var(--start) cover 30%;
+    animation-range: entry var(--start) cover 50%;
+}
+
+html {
+    scroll-timeline: --page-scroll block;
+}
+
+@keyframes grow-progress {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+#progress {
+    width: 100%;
+    transform-origin: 0 50%;
+    animation: grow-progress auto linear;
+    animation-timeline: --page-scroll;
 }
 
 @layer warning {
