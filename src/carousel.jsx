@@ -68,9 +68,10 @@ const Carousel = () => {
             className="item"
             alt="image-10"
           />
-          <div className="border absolute gradient"></div>
+          <div className="gradient"></div>
         </div>
       </div>
+      <div className="gradient2"></div>
     </div>
   );
 };
