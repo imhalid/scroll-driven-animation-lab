@@ -1,4 +1,5 @@
 import "./App.css";
+import Carousel from "./carousel.jsx";
 import Gallery from "./gallery.jsx";
 import Menu from "./menu.jsx";
 function App() {
@@ -126,6 +127,7 @@ function App() {
             Maecenas feugiat, quam vel ullamcorper feugiat, sapien ipsum viverra
             justo, id cursus metus nisi quis enim.
           </p>
+          <Carousel />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
             mattis turpis eu neque tincidunt lacinia. Pellentesque habitant
