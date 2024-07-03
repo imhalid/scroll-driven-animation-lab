@@ -1,6 +1,6 @@
 const Carousel = () => {
   return (
-    <div className="w-full h-96 py-10 bg-neutral-900 rounded-xl relative z-0 border border-neutral-700 p-1 flex flex-wrap items-center gap-2 justify-center overflow-hidden">
+    <div className="w-full h-[500px] bg-neutral-900 rounded-xl relative z-0 border border-neutral-700 p-1 flex flex-wrap items-center gap-2 justify-center overflow-hidden">
       <div className="banner">
         <div
           className="slider"
@@ -68,6 +68,7 @@ const Carousel = () => {
             className="item"
             alt="image-10"
           />
+          <div className="border absolute gradient"></div>
         </div>
       </div>
     </div>
