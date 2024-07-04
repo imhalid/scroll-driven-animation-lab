@@ -91,6 +91,7 @@ function App() {
             diam ac diam tempor molestie. Mauris eget lectus leo. Etiam id porta
             turpis.
           </p>
+          <Carousel />
 
           <p>
             Aenean ac pellentesque ante. In hac habitasse platea dictumst.
@@ -102,7 +103,21 @@ function App() {
             posuere, dictum laoreet felis. Class aptent taciti sociosqu ad
             litora torquent per conubia nostra, per inceptos himenaeos.
           </p>
-
+          <div
+            style={{
+              transformStyle: "preserve-3d",
+              transform: "perspective(1000px)",
+            }}
+          >
+            <img
+              style={{
+                transform: "rotateY(5deg) rotateX(30deg)",
+              }}
+              src="./3d/image-1.jpg"
+              width={300}
+              className="mx-auto"
+            />
+          </div>
           <p>
             Nam pulvinar congue condimentum. Pellentesque fringilla ante sed
             massa tincidunt feugiat. Nulla bibendum est eros, non malesuada
@@ -127,7 +142,6 @@ function App() {
             Maecenas feugiat, quam vel ullamcorper feugiat, sapien ipsum viverra
             justo, id cursus metus nisi quis enim.
           </p>
-          <Carousel />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
             mattis turpis eu neque tincidunt lacinia. Pellentesque habitant

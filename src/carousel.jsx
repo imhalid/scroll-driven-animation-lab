@@ -5,69 +5,18 @@ const Carousel = () => {
         <div
           className="slider"
           style={{
-            "--quantity": 10,
+            "--quantity": 15,
           }}
         >
-          <img
-            style={{ "--index": 1 }}
-            src="./3d/image-1.jpg"
-            className="item"
-            alt="image-1"
-          />
-          <img
-            style={{ "--index": 2 }}
-            src="./3d/image-2.jpg"
-            className="item"
-            alt="image-2"
-          />
-          <img
-            style={{ "--index": 3 }}
-            src="./3d/image-3.jpg"
-            className="item"
-            alt="image-3"
-          />
-          <img
-            style={{ "--index": 4 }}
-            src="./3d/image-4.jpg"
-            className="item"
-            alt="image-4"
-          />
-          <img
-            style={{ "--index": 5 }}
-            src="./3d/image-5.jpg"
-            className="item"
-            alt="image-5"
-          />
-          <img
-            style={{ "--index": 6 }}
-            src="./3d/image-6.jpg"
-            className="item"
-            alt="image-6"
-          />
-          <img
-            style={{ "--index": 7 }}
-            src="./3d/image-7.jpg"
-            className="item"
-            alt="image-7"
-          />
-          <img
-            style={{ "--index": 8 }}
-            src="./3d/image-8.jpg"
-            className="item"
-            alt="image-8"
-          />
-          <img
-            style={{ "--index": 9 }}
-            src="./3d/image-9.jpg"
-            className="item"
-            alt="image-9"
-          />
-          <img
-            style={{ "--index": 10 }}
-            src="./3d/image-10.jpg"
-            className="item"
-            alt="image-10"
-          />
+          {[...Array(15)].map((_, index) => (
+            <img
+              key={index}
+              style={{ "--index": index + 1 }}
+              src={`./3d/image-${index + 1}.jpg`}
+              className="item"
+              alt={`image-${index + 1}`}
+            />
+          ))}
           <div className="gradient"></div>
         </div>
       </div>
